@@ -1,0 +1,14 @@
+.weatherCard {
+  max-width: 1360px;
+  height: 80px;
+  background-image: url(../../images/WeatherCardSunny.svg);
+  display: flex;
+}
+
+.weatherCard__temperature {
+  color: white;
+  font-size: 40px;
+  margin-left: 20px;
+  max-height: 69px;
+  align-self: center;
+}

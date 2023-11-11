@@ -1,13 +1,35 @@
 .header {
   display: flex;
 
-  align-content: center;
+  align-content: space-between;
 }
 
 .header__logo {
+  display: flex;
   background-image: url(../../logo.svg);
   width: 89px;
   height: 40px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.header .wraper {
+  display: flex;
+}
+
+.header__left {
+  margin-right: auto;
+}
+
+.header__location-info {
+  display: flex;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.header__button {
+  background-color: transparent;
+  border: none;
+  width: 116px;
+  height: 24px;
 }
