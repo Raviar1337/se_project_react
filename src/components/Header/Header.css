@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+
+  align-content: center;
+}
+
+.header__logo {
+  background-image: url(../../logo.svg);
+  width: 89px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
