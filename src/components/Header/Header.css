@@ -21,6 +21,10 @@
   margin-right: auto;
 }
 
+.header__right {
+  align-items: center;
+}
+
 .header__location-info {
   display: flex;
   padding-top: 15px;
@@ -32,4 +36,11 @@
   border: none;
   width: 116px;
   height: 24px;
+}
+
+.header__userAvatar {
+  height: 40px;
+  width: 40px;
+  background-image: url(../../images/AvatarPlaceholder.svg);
+  margin-left: 12px;
 }

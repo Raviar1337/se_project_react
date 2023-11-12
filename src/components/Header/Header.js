@@ -10,7 +10,7 @@ function Header() {
   const currentLocation = "Atlanta GA";
 
   // Current user place holder to be replaced with code
-  const currentUser = { name: "Patrick A", avatar: "some image here" };
+  const currentUser = { name: "Patrick A", avatar: "" };
 
   //todo fix css for element locations
   return (
@@ -22,7 +22,7 @@ function Header() {
             {currentDate},{currentLocation}
           </div>
         </div>
-        <div className="wraper">
+        <div className="wraper header__right">
           <button className="header__button">+ Add clothes</button>
           <div className="header__userName">{currentUser.name}</div>
           <image className="header__userAvatar">{currentUser.avatar}</image>
