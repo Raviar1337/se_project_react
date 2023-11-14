@@ -1,4 +1,5 @@
 import "../Header/Header.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function Header() {
   const currentDate = new Date().toLocaleString("default", {
@@ -12,6 +13,10 @@ function Header() {
   // Current user place holder to be replaced with code
   const currentUser = { name: "Patrick A", avatar: "" };
 
+  function handleClick() {
+    console.log("I was clicked");
+  }
+
   //todo fix css for element locations
   return (
     <>
@@ -23,7 +28,9 @@ function Header() {
           </div>
         </div>
         <div className="wraper header__right">
-          <button className="header__button">+ Add clothes</button>
+          <button className="header__button" onClick={handleClick}>
+            + Add clothes
+          </button>
           <div className="header__userName">{currentUser.name}</div>
           <image className="header__userAvatar">{currentUser.avatar}</image>
         </div>

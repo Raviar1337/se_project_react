@@ -1,3 +1,11 @@
 .main {
   margin-top: 28px;
 }
+
+.main__cards {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 12px;
+}
