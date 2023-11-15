@@ -4,6 +4,8 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useState } from "react";
+import APIkey from "../../utils/constants";
 
 const defaultClothingItems = [
   {
@@ -45,13 +47,25 @@ const defaultClothingItems = [
 ];
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
+
+  const handleCreateModal = () => {
+    setActiveModal("create");
+  };
+
+  const handleCloseModal = () => {
+    setActiveModal("");
+  };
+
   return (
     <div className="backdrop">
       <div className="App">
-        <Header />
+        <Header onCreateModal={handleCreateModal} />
         <Main items={defaultClothingItems} />
         <Footer />
-        <ModalWithForm />
+        {activeModal === "create" && (
+          <ModalWithForm onCloseModal={handleCloseModal} />
+        )}
       </div>
     </div>
   );
