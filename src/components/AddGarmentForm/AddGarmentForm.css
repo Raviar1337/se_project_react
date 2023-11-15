@@ -1,1 +1,29 @@
+.addGarmentForm {
+  display: flex;
+  flex-direction: column;
+}
 
+.addGarmentForm__input {
+  display: flex;
+  flex-direction: column;
+  height: 52px;
+  margin-top: 24px;
+  gap: 3px;
+}
+
+.addGarmentForm__input-field {
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.addGarmentForm__buttonContainer-title {
+  margin: 0;
+  margin-top: 24px;
+}
+
+.addGarmentForm__buttonContainer {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

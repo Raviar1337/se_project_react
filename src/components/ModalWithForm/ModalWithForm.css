@@ -21,7 +21,7 @@
 .modalWithForm {
   padding: 28px;
   position: relative;
-  width: 496px;
+  width: 440px;
   margin: auto;
   display: flex;
   background-color: white;
@@ -33,7 +33,6 @@
 
 .modal__title {
   margin: 0;
-  margin-bottom: 24px;
 }
 
 .modalWithForm__submit {
@@ -41,6 +40,7 @@
   height: 36px;
 
   padding: 8px 16px;
+  margin-top: 32px;
 }
 
 .modal__closeButtton {

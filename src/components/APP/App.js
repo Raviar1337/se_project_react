@@ -7,7 +7,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
 import APIkey from "../utils/constants";
 import { getWeatherInfo, parseWeatherData } from "../utils/weatherApi";
-import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
+import AddGarmentForm from "../AddGarmentForm/AddgarmentForm";
 
 const defaultClothingItems = [
   {
