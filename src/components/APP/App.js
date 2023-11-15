@@ -4,8 +4,9 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
-import APIkey from "../../utils/constants";
+import { useEffect, useState } from "react";
+import APIkey from "../utils/constants";
+import { getWeatherInfo, parseWeatherData } from "../utils/weatherApi";
 
 const defaultClothingItems = [
   {
@@ -48,6 +49,8 @@ const defaultClothingItems = [
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [temp, setTemp] = useState(0);
+  const [location, setLocation] = useState("");
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -57,11 +60,20 @@ function App() {
     setActiveModal("");
   };
 
+  useEffect(() => {
+    getWeatherInfo().then((res) => {
+      const weatherApiInfo = parseWeatherData(res);
+      console.log(weatherApiInfo);
+      setTemp(weatherApiInfo.temp);
+      setLocation(weatherApiInfo.location);
+    });
+  }, []);
+
   return (
     <div className="backdrop">
       <div className="App">
-        <Header onCreateModal={handleCreateModal} />
-        <Main items={defaultClothingItems} />
+        <Header onCreateModal={handleCreateModal} location={location} />
+        <Main items={defaultClothingItems} temp={temp} />
         <Footer />
         {activeModal === "create" && (
           <ModalWithForm onCloseModal={handleCloseModal} />

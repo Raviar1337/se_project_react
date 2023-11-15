@@ -2,8 +2,8 @@ import "./WeatherCard.css";
 
 // todo weather card is currentlky hardcoded as weather card background, Needs to update according API
 // Other code <image className="weatherCard__image"></image>
-function WeatherCard() {
-  const temp = "75 F";
+function WeatherCard({ temp }) {
+  // const currentTemp = temp;
 
   //todo this is hardcoded and will need to be updated
   const weatherCardImage = "";

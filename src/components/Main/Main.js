@@ -3,8 +3,9 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/Itemcard";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function Main({ items }) {
+function Main({ items, temp }) {
   console.log(items);
+  console.log(temp);
 
   // cardList.items.forEach((item) => {
   //   return <ItemCard cardTitle={item.name} />;
@@ -13,7 +14,7 @@ function Main({ items }) {
   return (
     <>
       <div className="main">
-        <WeatherCard />
+        <WeatherCard temp={temp} />
         <ul className="main__cards">
           {items.map((item) => {
             console.log(item.name);

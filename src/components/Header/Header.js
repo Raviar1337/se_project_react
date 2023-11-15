@@ -1,14 +1,14 @@
 import "../Header/Header.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function Header({ onCreateModal }) {
+function Header({ onCreateModal, location }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
 
   //current Location place holder to be replaced with code
-  const currentLocation = "Atlanta GA";
+  const currentLocation = location;
 
   // Current user place holder to be replaced with code
   const currentUser = { name: "Patrick A", avatar: "" };
@@ -20,7 +20,7 @@ function Header({ onCreateModal }) {
         <div className="wraper header__left">
           <image className="header__logo" />
           <div className="header__location-info">
-            {currentDate},{currentLocation}
+            {currentDate}, {currentLocation}
           </div>
         </div>
         <div className="wraper header__right">
