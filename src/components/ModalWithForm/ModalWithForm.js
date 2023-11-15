@@ -2,13 +2,14 @@ import "./ModalWithForm.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
-function ModalWithForm({ onCloseModal }) {
+function ModalWithForm({ onCloseModal, children }) {
   const modalTitle = "Modal Title";
 
   const submitButtonText = "Add Garment";
 
   // some extra code here
   //{`modal modal_type_${name}`}
+  // className={`modal modal_type_${name}`}
 
   return (
     <>
@@ -20,7 +21,7 @@ function ModalWithForm({ onCloseModal }) {
           ></button>
           <form>
             <h3 className="modal__title">{modalTitle}</h3>
-
+            <div>{children}</div>
             <button className="modalWithForm__submit">
               {submitButtonText}
             </button>

@@ -1,6 +1,5 @@
 import "./WeatherCard.css";
 
-// todo weather card is currentlky hardcoded as weather card background, Needs to update according API
 // Other code <image className="weatherCard__image"></image>
 function WeatherCard({ temp }) {
   // const currentTemp = temp;
@@ -19,7 +18,7 @@ function WeatherCard({ temp }) {
         //   backgroundImage: `url(${weatherCardImage})`,
         // }}
       >
-        <div className="weatherCard__temperature">{temp}</div>
+        <div className="weatherCard__temperature">{temp} F</div>
       </div>
     </>
   );

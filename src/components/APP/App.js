@@ -7,6 +7,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
 import APIkey from "../utils/constants";
 import { getWeatherInfo, parseWeatherData } from "../utils/weatherApi";
+import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 
 const defaultClothingItems = [
   {
@@ -51,6 +52,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
+  const [selectedForm, setSelectedForm] = useState(1);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -76,7 +78,10 @@ function App() {
         <Main items={defaultClothingItems} temp={temp} />
         <Footer />
         {activeModal === "create" && (
-          <ModalWithForm onCloseModal={handleCloseModal} />
+          <ModalWithForm onCloseModal={handleCloseModal}>
+            {selectedForm === 1 && <AddGarmentForm />}
+            {selectedForm === 2 && <div>form 2 children</div>}
+          </ModalWithForm>
         )}
       </div>
     </div>
