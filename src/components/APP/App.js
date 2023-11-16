@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import APIkey from "../utils/constants";
 import { getWeatherInfo, parseWeatherData } from "../utils/weatherApi";
 import AddGarmentForm from "../AddGarmentForm/AddgarmentForm";
+import ItemModal from "../ItemModal/ItemModal";
 
 const defaultClothingItems = [
   {
@@ -52,20 +53,33 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
-  const [selectedForm, setSelectedForm] = useState(1);
+  const [selectedForm, setSelectedForm] = useState(2);
+  const [selectedCard, setSelectedCard] = useState({});
 
   const handleCreateModal = () => {
     setActiveModal("create");
+  };
+
+  const handleOpenItemModal = () => {
+    setActiveModal("preview");
   };
 
   const handleCloseModal = () => {
     setActiveModal("");
   };
 
+  const handleCardSelect = (card) => {
+    setSelectedCard(card);
+  };
+
+  const handleOpenAddGarmentForm = () => {
+    setSelectedForm(1);
+  };
+
   useEffect(() => {
     getWeatherInfo().then((res) => {
       const weatherApiInfo = parseWeatherData(res);
-      console.log(weatherApiInfo);
+
       setTemp(weatherApiInfo.temp);
       setLocation(weatherApiInfo.location);
     });
@@ -74,14 +88,26 @@ function App() {
   return (
     <div className="backdrop">
       <div className="App">
-        <Header onCreateModal={handleCreateModal} location={location} />
-        <Main items={defaultClothingItems} temp={temp} />
+        <Header
+          onCreateModal={handleCreateModal}
+          onOpenAddGarmentForm={handleOpenAddGarmentForm}
+          location={location}
+        />
+        <Main
+          items={defaultClothingItems}
+          temp={temp}
+          onCreateModal={handleCreateModal}
+          onOpenItemModal={handleOpenItemModal}
+          cardSelect={handleCardSelect}
+        />
         <Footer />
         {activeModal === "create" && (
           <ModalWithForm onCloseModal={handleCloseModal}>
             {selectedForm === 1 && <AddGarmentForm />}
-            {selectedForm === 2 && <div>form 2 children</div>}
           </ModalWithForm>
+        )}
+        {activeModal === "preview" && (
+          <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />
         )}
       </div>
     </div>

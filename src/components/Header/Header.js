@@ -1,7 +1,7 @@
 import "../Header/Header.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function Header({ onCreateModal, location }) {
+function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -24,7 +24,11 @@ function Header({ onCreateModal, location }) {
           </div>
         </div>
         <div className="wraper header__right">
-          <button className="header__button" onClick={onCreateModal}>
+          <button
+            className="header__button"
+            onMouseUp={onCreateModal}
+            onMouseDown={onOpenAddGarmentForm}
+          >
             + Add clothes
           </button>
           <div className="header__userName">{currentUser.name}</div>

@@ -17,6 +17,7 @@
   position: absolute;
   z-index: 1;
   border-radius: 4%;
+  cursor: pointer;
 }
 
 .itemCard__title {

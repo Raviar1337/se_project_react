@@ -7,3 +7,13 @@
 //   latitude: 44.34,
 //   longitude: 10.99,
 // };
+
+export function parseTemp(temperature) {
+  if (temperature >= 86) {
+    return "hot";
+  } else if (temperature >= 66 && temperature <= 85) {
+    return "warm";
+  } else if (temperature <= 65) {
+    return "cold";
+  }
+}

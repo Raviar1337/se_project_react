@@ -1,11 +1,15 @@
 import "./ItemCard.css";
 
-function ItemCard({ cardTitle, cardImage }) {
+function ItemCard({ item, onOpenItem, cardSelect }) {
   return (
     <li>
-      <div className="itemCard">
-        <img className="itemCard__image" src={cardImage}></img>
-        <h3 className="itemCard__title">{cardTitle}</h3>
+      <div className="itemCard" onMouseUp={onOpenItem}>
+        <img
+          className="itemCard__image"
+          src={item.link}
+          onMouseUp={() => cardSelect({ item })}
+        ></img>
+        <h3 className="itemCard__title">{item.name}</h3>
       </div>
     </li>
   );
