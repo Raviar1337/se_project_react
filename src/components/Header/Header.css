@@ -42,6 +42,6 @@
 .header__userAvatar {
   height: 40px;
   width: 40px;
-  background-image: url(../../public/images/AvatarPlaceholder.svg);
+  background-image: url(../../images/WeatherCardSunny.svg);
   margin-left: 12px;
 }

@@ -1,7 +1,7 @@
 .weatherCard {
   max-width: 1360px;
   height: 80px;
-  background-image: url(../../public/images/WeatherCardSunny.svg);
+  background-image: url(../../images/WeatherCardSunny.svg);
   display: flex;
 }
 

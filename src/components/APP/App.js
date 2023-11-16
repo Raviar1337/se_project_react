@@ -5,8 +5,8 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
-import APIkey from "../utils/constants";
-import { getWeatherInfo, parseWeatherData } from "../utils/weatherApi";
+import APIkey from "../../utils/constants";
+import { getWeatherInfo, parseWeatherData } from "../../utils/weatherApi";
 import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 import ItemModal from "../ItemModal/ItemModal";
 
@@ -95,7 +95,7 @@ function App() {
         />
         <Main
           items={defaultClothingItems}
-          temp={temp}
+          temp={Math.ceil(temp)}
           onCreateModal={handleCreateModal}
           onOpenItemModal={handleOpenItemModal}
           cardSelect={handleCardSelect}

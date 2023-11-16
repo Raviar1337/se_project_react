@@ -2,7 +2,7 @@ import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/Itemcard";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { parseTemp } from "../utils/constants";
+import { parseTemp } from "../../utils/constants";
 
 function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
   console.log(items);
