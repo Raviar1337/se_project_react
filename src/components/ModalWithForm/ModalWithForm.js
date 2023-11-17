@@ -5,8 +5,8 @@ import ReactDOM from "react-dom";
 function ModalWithForm({
   onCloseModal,
   children,
-  submitButtonText = "Add Garment",
-  modalTitle = "New Garment",
+  submitButtonText,
+  modalTitle,
 }) {
   // some extra code here
   //{`modal modal_type_${name}`}

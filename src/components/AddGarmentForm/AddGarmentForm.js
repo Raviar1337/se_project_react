@@ -7,15 +7,18 @@ function AddGarmentForm() {
         <label className="addGarmentForm__input">
           Name
           <input
+            required
             className="addGarmentForm__input-field"
             type="text"
             name="name"
             placeholder="Name"
+            minLength={2}
           ></input>
         </label>
         <label className="addGarmentForm__input">
           Image
           <input
+            required
             className="addGarmentForm__input-field"
             type="url"
             name="Image"
@@ -27,15 +30,15 @@ function AddGarmentForm() {
         </p>
         <div className="addGarmentForm__buttonContainer">
           <div>
-            <input type="radio" id="hot" value="hot" />
+            <input name="weather-type" type="radio" id="hot" value="hot" re />
             <label>Hot</label>
           </div>
           <div>
-            <input type="radio" id="warm" value="warm" />
+            <input name="weather-type" type="radio" id="warm" value="warm" />
             <label>Warm</label>
           </div>
           <div>
-            <input type="radio" id="cold" value="cold" />
+            <input name="weather-type" type="radio" id="cold" value="cold" />
             <label>Cold</label>
           </div>
         </div>

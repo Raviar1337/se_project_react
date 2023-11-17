@@ -2,7 +2,7 @@ import "./ItemCard.css";
 
 function ItemCard({ item, onOpenItem, cardSelect }) {
   return (
-    <li>
+    <li key={item._id}>
       <div className="itemCard" onMouseUp={onOpenItem}>
         <img
           className="itemCard__image"

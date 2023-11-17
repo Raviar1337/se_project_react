@@ -8,27 +8,26 @@
 //   return 'cold';
 // }
 
-const APIkey = "c44122571bf23cefec328510e217242a";
-const latitude = 30.83;
-const longitude = -83.27;
+import { APIkey, latitude, longitude } from "./constants";
 
 export const getWeatherInfo = () => {
   const weatherApi = fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  ).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  });
+  ).then(processServerResponse);
   return weatherApi;
+};
+
+const processServerResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
 };
 
 export const parseWeatherData = (data) => {
   const weatherApiInfo = {};
   weatherApiInfo.temp = data.main.temp;
   weatherApiInfo.location = data.name;
-  console.log(weatherApiInfo);
+
   return weatherApiInfo;
 };

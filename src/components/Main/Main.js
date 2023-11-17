@@ -1,13 +1,13 @@
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
-import ItemCard from "../ItemCard/Itemcard";
+import ItemCard from "../ItemCard/ItemCard";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { parseTemp } from "../../utils/constants";
 
 function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
   console.log(items);
   console.log(temp);
-
+  const currentWeather = parseTemp(temp);
   // cardList.items.forEach((item) => {
   //   return <ItemCard cardTitle={item.name} />;
   // });
@@ -21,8 +21,6 @@ function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
         </p>
         <ul className="main__cards">
           {items.map((item) => {
-            const currentWeather = parseTemp(temp);
-            console.log(currentWeather);
             if (item.weather === currentWeather) {
               return (
                 <ItemCard

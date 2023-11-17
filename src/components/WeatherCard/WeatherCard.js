@@ -5,7 +5,7 @@ function WeatherCard({ temp }) {
   // const currentTemp = temp;
 
   //todo this is hardcoded and will need to be updated
-  const weatherCardImage = "";
+  //const weatherCardImage = "";
 
   return (
     <>
@@ -18,7 +18,7 @@ function WeatherCard({ temp }) {
         //   backgroundImage: `url(${weatherCardImage})`,
         // }}
       >
-        <div className="weatherCard__temperature">{temp} F</div>
+        <div className="weatherCard__temperature">{temp} &deg;F</div>
       </div>
     </>
   );
