@@ -24,6 +24,7 @@ function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
             if (item.weather === currentWeather) {
               return (
                 <ItemCard
+                  key={item._id}
                   item={item}
                   onCreateModal={onCreateModal}
                   onOpenItem={onOpenItemModal}
