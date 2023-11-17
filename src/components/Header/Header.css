@@ -6,9 +6,10 @@
 
 .header__logo {
   display: flex;
-  background-image: url(../../logo.svg);
+
   width: 89px;
   height: 40px;
+  background-image: url(../../images/logo.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -42,6 +43,6 @@
 .header__userAvatar {
   height: 40px;
   width: 40px;
-  background-image: url(../../images/WeatherCardSunny.svg);
+  background-image: url(../../images/AvatarPlaceholder.svg);
   margin-left: 12px;
 }

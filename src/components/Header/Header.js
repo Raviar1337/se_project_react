@@ -1,5 +1,6 @@
 import "../Header/Header.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import logo from "../../images/logo.svg";
 
 function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -18,7 +19,7 @@ function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
     <>
       <div className="header">
         <div className="wraper header__left">
-          <image className="header__logo" />
+          <img className="header__logo" src={logo}></img>
           <div className="header__location-info">
             {currentDate}, {currentLocation}
           </div>
