@@ -1,6 +1,7 @@
 import "../Header/Header.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import logo from "../../images/logo.svg";
+import avatar from "../../images/AvatarPlaceholder.svg";
 
 function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -19,7 +20,7 @@ function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
     <>
       <div className="header">
         <div className="wraper header__left">
-          <img className="header__logo" src={logo}></img>
+          <img className="header__logo" src={logo} alt="logo"></img>
           <div className="header__location-info">
             {currentDate}, {currentLocation}
           </div>
@@ -33,7 +34,7 @@ function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
             + Add clothes
           </button>
           <div className="header__userName">{currentUser.name}</div>
-          <image className="header__userAvatar">{currentUser.avatar}</image>
+          <img className="header__userAvatar" src={avatar} alt="avatar"></img>
         </div>
       </div>
     </>
