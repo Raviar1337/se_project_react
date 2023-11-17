@@ -30,7 +30,7 @@ function AddGarmentForm() {
         </p>
         <div className="addGarmentForm__buttonContainer">
           <div>
-            <input name="weather-type" type="radio" id="hot" value="hot" re />
+            <input name="weather-type" type="radio" id="hot" value="hot" />
             <label>Hot</label>
           </div>
           <div>
