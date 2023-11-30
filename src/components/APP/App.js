@@ -9,6 +9,10 @@ import { getWeatherInfo, parseWeatherData } from "../../utils/weatherApi";
 import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { defaultClothingItems } from "../../utils/constants";
+import {
+  CurrentTemperatureUnitContext,
+  currentTemperatureUnit,
+} from "../../contexts/CurrentTemperatureUnitContext";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -16,6 +20,7 @@ function App() {
   const [location, setLocation] = useState("");
   const [selectedForm, setSelectedForm] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -37,6 +42,12 @@ function App() {
     setSelectedForm("addGarment");
   };
 
+  const handleToggleSwitchChange = () => {
+    currentTemperatureUnit === "F"
+      ? setCurrentTemperatureUnit("C")
+      : setCurrentTemperatureUnit("F");
+  };
+
   useEffect(() => {
     getWeatherInfo()
       .then((res) => {
@@ -50,33 +61,37 @@ function App() {
 
   return (
     <div className="backdrop">
-      <div className="App">
-        <Header
-          onCreateModal={handleCreateModal}
-          onOpenAddGarmentForm={handleOpenAddGarmentForm}
-          location={location}
-        />
-        <Main
-          items={defaultClothingItems}
-          temp={Math.ceil(temp)}
-          onCreateModal={handleCreateModal}
-          onOpenItemModal={handleOpenItemModal}
-          cardSelect={handleCardSelect}
-        />
-        <Footer />
-        {activeModal === "create" && (
-          <ModalWithForm
-            onCloseModal={handleCloseModal}
-            modalTitle="New Garment"
-            submitButtonText="Add Garment"
-          >
-            {selectedForm === "addGarment" && <AddGarmentForm />}
-          </ModalWithForm>
-        )}
-        {activeModal === "preview" && (
-          <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />
-        )}
-      </div>
+      <CurrentTemperatureUnitContext.Provider
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+      >
+        <div className="App">
+          <Header
+            onCreateModal={handleCreateModal}
+            onOpenAddGarmentForm={handleOpenAddGarmentForm}
+            location={location}
+          />
+          <Main
+            items={defaultClothingItems}
+            temp={Math.ceil(temp)}
+            onCreateModal={handleCreateModal}
+            onOpenItemModal={handleOpenItemModal}
+            cardSelect={handleCardSelect}
+          />
+          <Footer />
+          {activeModal === "create" && (
+            <ModalWithForm
+              onCloseModal={handleCloseModal}
+              modalTitle="New Garment"
+              submitButtonText="Add Garment"
+            >
+              {selectedForm === "addGarment" && <AddGarmentForm />}
+            </ModalWithForm>
+          )}
+          {activeModal === "preview" && (
+            <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />
+          )}
+        </div>
+      </CurrentTemperatureUnitContext.Provider>
     </div>
   );
 }

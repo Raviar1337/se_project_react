@@ -2,6 +2,7 @@ import "../Header/Header.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/AvatarPlaceholder.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
   const currentDate = new Date().toLocaleString("default", {
@@ -26,6 +27,7 @@ function Header({ onCreateModal, location, onOpenAddGarmentForm }) {
           </div>
         </div>
         <div className="wraper header__right">
+          <ToggleSwitch />
           <button
             className="header__button"
             onMouseUp={onCreateModal}

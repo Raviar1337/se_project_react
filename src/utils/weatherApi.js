@@ -28,6 +28,7 @@ export const parseWeatherData = (data) => {
   const weatherApiInfo = {};
   weatherApiInfo.temp = data.main.temp;
   weatherApiInfo.location = data.name;
+  weatherApiInfo.celsius = ((data.main.temp - 32) * 5) / 9;
 
   return weatherApiInfo;
 };
