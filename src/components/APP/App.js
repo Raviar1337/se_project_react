@@ -9,10 +9,7 @@ import { getWeatherInfo, parseWeatherData } from "../../utils/weatherApi";
 import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { defaultClothingItems } from "../../utils/constants";
-import {
-  CurrentTemperatureUnitContext,
-  currentTemperatureUnit,
-} from "../../contexts/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -43,9 +40,11 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === "F"
-      ? setCurrentTemperatureUnit("C")
-      : setCurrentTemperatureUnit("F");
+    if (currentTemperatureUnit === "F") {
+      setCurrentTemperatureUnit("C");
+    } else {
+      setCurrentTemperatureUnit("F");
+    }
   };
 
   useEffect(() => {
