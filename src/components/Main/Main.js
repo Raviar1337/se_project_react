@@ -1,13 +1,21 @@
+import React from "react";
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { parseTemp } from "../../utils/constants";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
-  console.log(items);
   console.log(temp);
-  const currentWeather = parseTemp(temp);
+
+  const currentTemperatureUnit = React.useContext(
+    CurrentTemperatureUnitContext
+  );
+  const currentWeather = parseTemp(
+    temp,
+    currentTemperatureUnit.currentTemperatureUnit
+  );
   // cardList.items.forEach((item) => {
   //   return <ItemCard cardTitle={item.name} />;
   // });
@@ -17,7 +25,8 @@ function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
       <div className="main">
         <WeatherCard temp={temp} />
         <p className="main__message">
-          Today is {temp} F, you may want to wear:
+          Today is {temp} &deg;{currentTemperatureUnit.currentTemperatureUnit},
+          you may want to wear:
         </p>
         <ul className="main__cards">
           {items.map((item) => {

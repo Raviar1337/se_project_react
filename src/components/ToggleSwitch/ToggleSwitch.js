@@ -14,7 +14,7 @@ function ToggleSwitch() {
       <label className="toggleSwitch">
         <input
           type="checkbox"
-          onClick={currentTemperatureUnit.handleToggleSwittch}
+          onClick={currentTemperatureUnit.handleToggleSwitchChange}
         />
         <span className="toggleSwitch__slider" />
       </label>

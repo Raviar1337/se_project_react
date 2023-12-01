@@ -1,4 +1,6 @@
+import React from "react";
 import "./WeatherCard.css";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 // Other code <image className="weatherCard__image"></image>
 function WeatherCard({ temp }) {
@@ -6,6 +8,10 @@ function WeatherCard({ temp }) {
 
   //todo this is hardcoded and will need to be updated
   //const weatherCardImage = "";
+
+  const currentTemperatureUnit = React.useContext(
+    CurrentTemperatureUnitContext
+  );
 
   return (
     <>
@@ -18,7 +24,9 @@ function WeatherCard({ temp }) {
         //   backgroundImage: `url(${weatherCardImage})`,
         // }}
       >
-        <div className="weatherCard__temperature">{temp} &deg;F</div>
+        <div className="weatherCard__temperature">
+          {temp} &deg;{currentTemperatureUnit.currentTemperatureUnit}
+        </div>
       </div>
     </>
   );

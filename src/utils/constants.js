@@ -8,13 +8,23 @@
 //   longitude: 10.99,
 // };
 
-export function parseTemp(temperature) {
-  if (temperature >= 86) {
-    return "hot";
-  } else if (temperature >= 66 && temperature <= 85) {
-    return "warm";
-  } else if (temperature <= 65) {
-    return "cold";
+export function parseTemp(temperature, currentUnit) {
+  if (currentUnit === "F") {
+    if (temperature >= 86) {
+      return "hot";
+    } else if (temperature >= 66 && temperature <= 85) {
+      return "warm";
+    } else if (temperature <= 65) {
+      return "cold";
+    }
+  } else {
+    if (temperature >= 30) {
+      return "hot";
+    } else if (temperature >= 19 && temperature <= 29) {
+      return "warm";
+    } else if (temperature <= 18) {
+      return "cold";
+    }
   }
 }
 

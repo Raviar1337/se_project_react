@@ -40,6 +40,7 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
+    console.log(`toggle function fired ${currentTemperatureUnit}`);
     if (currentTemperatureUnit === "F") {
       setCurrentTemperatureUnit("C");
     } else {
@@ -52,11 +53,11 @@ function App() {
       .then((res) => {
         const weatherApiInfo = parseWeatherData(res);
 
-        setTemp(weatherApiInfo.temp);
+        setTemp(weatherApiInfo[currentTemperatureUnit]);
         setLocation(weatherApiInfo.location);
       })
       .catch((res) => console.log(res));
-  }, []);
+  }, [currentTemperatureUnit]);
 
   return (
     <div className="backdrop">
