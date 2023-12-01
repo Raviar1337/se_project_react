@@ -28,6 +28,8 @@ export function parseTemp(temperature, currentUnit) {
   }
 }
 
+const baseUrl = "http://localhost:3001";
+
 const APIkey = "c44122571bf23cefec328510e217242a";
 const latitude = 30.83;
 const longitude = -83.27;
