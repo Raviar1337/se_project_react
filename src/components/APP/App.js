@@ -10,6 +10,8 @@ import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { defaultClothingItems } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { Route } from "react-router-dom/cjs/react-router-dom";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -60,39 +62,41 @@ function App() {
   }, [currentTemperatureUnit]);
 
   return (
-    <div className="backdrop">
-      <CurrentTemperatureUnitContext.Provider
-        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-      >
-        <div className="App">
-          <Header
-            onCreateModal={handleCreateModal}
-            onOpenAddGarmentForm={handleOpenAddGarmentForm}
-            location={location}
-          />
-          <Main
-            items={defaultClothingItems}
-            temp={Math.ceil(temp)}
-            onCreateModal={handleCreateModal}
-            onOpenItemModal={handleOpenItemModal}
-            cardSelect={handleCardSelect}
-          />
-          <Footer />
-          {activeModal === "create" && (
-            <ModalWithForm
-              onCloseModal={handleCloseModal}
-              modalTitle="New Garment"
-              submitButtonText="Add Garment"
-            >
-              {selectedForm === "addGarment" && <AddGarmentForm />}
-            </ModalWithForm>
-          )}
-          {activeModal === "preview" && (
-            <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />
-          )}
-        </div>
-      </CurrentTemperatureUnitContext.Provider>
-    </div>
+    <BrowserRouter>
+      <div className="backdrop">
+        <CurrentTemperatureUnitContext.Provider
+          value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+        >
+          <div className="App">
+            <Header
+              onCreateModal={handleCreateModal}
+              onOpenAddGarmentForm={handleOpenAddGarmentForm}
+              location={location}
+            />
+            <Main
+              items={defaultClothingItems}
+              temp={Math.ceil(temp)}
+              onCreateModal={handleCreateModal}
+              onOpenItemModal={handleOpenItemModal}
+              cardSelect={handleCardSelect}
+            />
+            <Footer />
+            {activeModal === "create" && (
+              <ModalWithForm
+                onCloseModal={handleCloseModal}
+                modalTitle="New Garment"
+                submitButtonText="Add Garment"
+              >
+                {selectedForm === "addGarment" && <AddGarmentForm />}
+              </ModalWithForm>
+            )}
+            {activeModal === "preview" && (
+              <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />
+            )}
+          </div>
+        </CurrentTemperatureUnitContext.Provider>
+      </div>
+    </BrowserRouter>
   );
 }
 
