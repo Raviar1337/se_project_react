@@ -8,10 +8,11 @@ import APIkey from "../../utils/constants";
 import { getWeatherInfo, parseWeatherData } from "../../utils/weatherApi";
 import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 import ItemModal from "../ItemModal/ItemModal";
-import { defaultClothingItems } from "../../utils/constants";
+
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { Route } from "react-router-dom/cjs/react-router-dom";
+import { getItems } from "../../utils/api";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -20,6 +21,7 @@ function App() {
   const [selectedForm, setSelectedForm] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [items, setItems] = useState([]);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -61,6 +63,14 @@ function App() {
       .catch((res) => console.log(res));
   }, [currentTemperatureUnit]);
 
+  useEffect(() => {
+    getItems()
+      .then((res) => {
+        setItems(res);
+      })
+      .catch((res) => console.log(res));
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="backdrop">
@@ -74,7 +84,7 @@ function App() {
               location={location}
             />
             <Main
-              items={defaultClothingItems}
+              items={items}
               temp={Math.ceil(temp)}
               onCreateModal={handleCreateModal}
               onOpenItemModal={handleOpenItemModal}

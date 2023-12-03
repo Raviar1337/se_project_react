@@ -6,7 +6,7 @@ function ItemCard({ item, onOpenItem, cardSelect }) {
       <div className="itemCard" onMouseUp={onOpenItem}>
         <img
           className="itemCard__image"
-          src={item.link}
+          src={item.imageUrl}
           onMouseUp={() => cardSelect({ item })}
         ></img>
         <h3 className="itemCard__title">{item.name}</h3>
