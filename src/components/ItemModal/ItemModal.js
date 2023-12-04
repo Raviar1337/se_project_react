@@ -14,7 +14,7 @@ function ItemModal({ onCloseModal, card }) {
           ></button>
           <img
             className="itemModal__image"
-            src={card.item.link}
+            src={card.item.imageUrl}
             alt={card.item.name}
           ></img>
           <div className="itemModal__footer">

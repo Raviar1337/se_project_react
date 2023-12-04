@@ -7,6 +7,7 @@ function ModalWithForm({
   children,
   submitButtonText,
   modalTitle,
+  onSubmitForm,
 }) {
   // some extra code here
   //{`modal modal_type_${name}`}
@@ -21,7 +22,7 @@ function ModalWithForm({
             className="modal__closeButtton"
             onClick={onCloseModal}
           ></button>
-          <form>
+          <form onSubmit={onSubmitForm}>
             <h3 className="modal__title">{modalTitle}</h3>
             <div>{children}</div>
             <button type="submit" className="modalWithForm__submit">

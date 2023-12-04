@@ -12,13 +12,14 @@ import ItemModal from "../ItemModal/ItemModal";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { Route } from "react-router-dom/cjs/react-router-dom";
-import { getItems } from "../../utils/api";
+import { getItems, postItem } from "../../utils/api";
+import AddItemMoal from "../AddItemModal/AddItemModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
-  const [selectedForm, setSelectedForm] = useState("");
+  //const [selectedForm, setSelectedForm] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [items, setItems] = useState([]);
@@ -39,9 +40,9 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleOpenAddGarmentForm = () => {
-    setSelectedForm("addGarment");
-  };
+  // const handleOpenAddGarmentForm = () => {
+  //   setSelectedForm("addGarment");
+  // };
 
   const handleToggleSwitchChange = () => {
     console.log(`toggle function fired ${currentTemperatureUnit}`);
@@ -50,6 +51,10 @@ function App() {
     } else {
       setCurrentTemperatureUnit("F");
     }
+  };
+
+  const updateItems = (item) => {
+    setItems([...items, item]);
   };
 
   useEffect(() => {
@@ -80,7 +85,7 @@ function App() {
           <div className="App">
             <Header
               onCreateModal={handleCreateModal}
-              onOpenAddGarmentForm={handleOpenAddGarmentForm}
+              // onOpenAddGarmentForm={handleOpenAddGarmentForm}
               location={location}
             />
             <Main
@@ -92,13 +97,11 @@ function App() {
             />
             <Footer />
             {activeModal === "create" && (
-              <ModalWithForm
-                onCloseModal={handleCloseModal}
-                modalTitle="New Garment"
-                submitButtonText="Add Garment"
-              >
-                {selectedForm === "addGarment" && <AddGarmentForm />}
-              </ModalWithForm>
+              <AddItemMoal
+                handleCloseModal={handleCloseModal}
+                updateItems={updateItems}
+                //handleAddGarmentSubmit={handleAddGarmentSubmit}
+              />
             )}
             {activeModal === "preview" && (
               <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />

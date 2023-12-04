@@ -101,6 +101,30 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "wef",
+      "weather": "warm",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.aRakREmvJGPMHP0yHK0h3AHaMb%26pid%3DApi&f=1&ipt=4ecb0b8156310dfbe1e71bc038c9fb0aa1ed3e29164dbea12060a28541f41a35&ipo=images",
+      "_id": 17
+    },
+    {
+      "name": "qw4ef",
+      "weather": "cold",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.aRakREmvJGPMHP0yHK0h3AHaMb%26pid%3DApi&f=1&ipt=4ecb0b8156310dfbe1e71bc038c9fb0aa1ed3e29164dbea12060a28541f41a35&ipo=images",
+      "_id": 18
+    },
+    {
+      "name": "kjjghjhjhj",
+      "weather": "cold",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.vT3Hz0v_YD9OJ36z-kIJyAHaE3%26pid%3DApi&f=1&ipt=77b649c75686ec590da10f4efe9a0969aa90a461c24ab08c5caea6c8ed2ca472&ipo=images",
+      "_id": 19
+    },
+    {
+      "name": "weffwef",
+      "weather": "cold",
+      "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.i2z-rKyDkWNqHIDo_-PJ8AHaEr%26pid%3DApi&f=1&ipt=65ccdc40d095658879de95c880f975b75d92be7eede2f24ed43e1144e5690d2e&ipo=images",
+      "_id": 20
     }
   ]
 }
