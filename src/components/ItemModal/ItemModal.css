@@ -12,11 +12,29 @@
 
 .itemModal__footer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   margin-top: 20px;
   padding-left: 32px;
   padding-bottom: 32px;
+  padding-right: 32px;
   gap: 12px;
+}
+
+.itemModal__footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.itemModal__deleteButton {
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 77, 0, 1);
+  cursor: pointer;
+}
+
+.itemModal__deleteButton:hover {
+  opacity: 0.8;
 }
 
 .itemModal__footer-content {

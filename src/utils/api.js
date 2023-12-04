@@ -21,6 +21,13 @@ export const postItem = (input) => {
   }).then(processServerResponse);
 };
 
+export const deleteItem = (input) => {
+  return fetch(`${baseUrl}/items/${input.item._id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  }).then(processServerResponse);
+};
+
 const processServerResponse = (res) => {
   console.log(res);
   if (res.ok) {

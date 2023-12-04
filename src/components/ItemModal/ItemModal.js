@@ -1,7 +1,7 @@
 import "../ModalWithForm/ModalWithForm.css";
 import "./ItemModal.css";
 
-function ItemModal({ onCloseModal, card }) {
+function ItemModal({ onCloseModal, card, handleCardDelete }) {
   console.log(card);
   return (
     <>
@@ -18,8 +18,18 @@ function ItemModal({ onCloseModal, card }) {
             alt={card.item.name}
           ></img>
           <div className="itemModal__footer">
-            <p className="itemModal__footer-content">{card.item.name}</p>
-            <p className="itemModal__footer-content">{`Weather: ${card.item.weather}`}</p>
+            <div className="itemModal__footer-left">
+              <p className="itemModal__footer-content">{card.item.name}</p>
+              <p className="itemModal__footer-content">{`Weather: ${card.item.weather}`}</p>
+            </div>
+            <div className="itemModal__footer-right">
+              <button
+                className="itemModal__deleteButton"
+                onClick={() => handleCardDelete(card)}
+              >
+                Delete Item
+              </button>
+            </div>
           </div>
         </div>
       </div>

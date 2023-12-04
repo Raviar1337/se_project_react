@@ -12,7 +12,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 import { Route } from "react-router-dom/cjs/react-router-dom";
-import { getItems, postItem } from "../../utils/api";
+import { deleteItem, getItems, postItem } from "../../utils/api";
 import AddItemMoal from "../AddItemModal/AddItemModal";
 
 function App() {
@@ -40,6 +40,16 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleCardDelete = (card) => {
+    console.log("delete buitton was clicked");
+    console.log(card);
+    deleteItem(card).catch((res) => {
+      console.error(res);
+    });
+    updateItemsDelete(card);
+    handleCloseModal();
+  };
+
   // const handleOpenAddGarmentForm = () => {
   //   setSelectedForm("addGarment");
   // };
@@ -53,8 +63,19 @@ function App() {
     }
   };
 
-  const updateItems = (item) => {
+  const updateItemsAdd = (item) => {
     setItems([...items, item]);
+  };
+
+  const updateItemsDelete = (card) => {
+    console.log("update after dlete");
+    setItems(
+      items.filter((item) => {
+        if (item._id !== card.item._id) {
+          return item;
+        }
+      })
+    );
   };
 
   useEffect(() => {
@@ -99,12 +120,16 @@ function App() {
             {activeModal === "create" && (
               <AddItemMoal
                 handleCloseModal={handleCloseModal}
-                updateItems={updateItems}
+                updateItems={updateItemsAdd}
                 //handleAddGarmentSubmit={handleAddGarmentSubmit}
               />
             )}
             {activeModal === "preview" && (
-              <ItemModal onCloseModal={handleCloseModal} card={selectedCard} />
+              <ItemModal
+                onCloseModal={handleCloseModal}
+                card={selectedCard}
+                handleCardDelete={handleCardDelete}
+              />
             )}
           </div>
         </CurrentTemperatureUnitContext.Provider>
