@@ -38,6 +38,7 @@
   width: 116px;
   height: 24px;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 .header__userAvatar {

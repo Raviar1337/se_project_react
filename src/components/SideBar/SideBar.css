@@ -1,0 +1,22 @@
+.sideBar {
+  display: flex;
+
+  width: 345px;
+}
+
+.sideBar__header-left {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  gap: 16px;
+}
+
+.header__userName {
+  height: fit-content;
+  color: black;
+}
+
+.header__userAvatar-sideBar {
+  height: 56px;
+  width: 56px;
+}

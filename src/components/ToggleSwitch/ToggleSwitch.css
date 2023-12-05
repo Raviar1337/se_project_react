@@ -39,3 +39,7 @@
 input:checked + .toggleSwitch__slider:before {
   transform: translateX(28px);
 }
+
+.toggleSwitch:hover .toggleSwitch__slider:before {
+  width: 30px;
+}

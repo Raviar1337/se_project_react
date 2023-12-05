@@ -10,10 +10,14 @@ import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 import ItemModal from "../ItemModal/ItemModal";
 
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  BrowserRouter,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { Route } from "react-router-dom/cjs/react-router-dom";
 import { deleteItem, getItems, postItem } from "../../utils/api";
 import AddItemMoal from "../AddItemModal/AddItemModal";
+import Profile from "../Profile/Profile";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -104,18 +108,33 @@ function App() {
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
           <div className="App">
-            <Header
-              onCreateModal={handleCreateModal}
-              // onOpenAddGarmentForm={handleOpenAddGarmentForm}
-              location={location}
-            />
-            <Main
-              items={items}
-              temp={Math.ceil(temp)}
-              onCreateModal={handleCreateModal}
-              onOpenItemModal={handleOpenItemModal}
-              cardSelect={handleCardSelect}
-            />
+            <Route path="/">
+              <Header
+                onCreateModal={handleCreateModal}
+                // onOpenAddGarmentForm={handleOpenAddGarmentForm}
+                location={location}
+              />
+            </Route>
+            <Switch>
+              <Route path="/profile">
+                <Profile
+                  items={items}
+                  temp={Math.ceil(temp)}
+                  onCreateModal={handleCreateModal}
+                  onOpenItemModal={handleOpenItemModal}
+                  cardSelect={handleCardSelect}
+                />
+              </Route>
+              <Route path="/">
+                <Main
+                  items={items}
+                  temp={Math.ceil(temp)}
+                  onCreateModal={handleCreateModal}
+                  onOpenItemModal={handleOpenItemModal}
+                  cardSelect={handleCardSelect}
+                />
+              </Route>
+            </Switch>
             <Footer />
             {activeModal === "create" && (
               <AddItemMoal
