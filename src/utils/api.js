@@ -28,7 +28,7 @@ export const deleteItem = (input) => {
   }).then(processServerResponse);
 };
 
-const processServerResponse = (res) => {
+export const processServerResponse = (res) => {
   console.log(res);
   if (res.ok) {
     return res.json();

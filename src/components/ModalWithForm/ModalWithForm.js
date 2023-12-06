@@ -14,7 +14,7 @@ function ModalWithForm({
   // className={`modal modal_type_${name}`}
 
   return (
-    <>
+    <div className="modal">
       <div className="modal__backDrop">
         <div className="modalWithForm">
           <button
@@ -24,14 +24,14 @@ function ModalWithForm({
           ></button>
           <form onSubmit={onSubmitForm}>
             <h3 className="modal__title">{modalTitle}</h3>
-            <div>{children}</div>
+            {children}
             <button type="submit" className="modalWithForm__submit">
               {submitButtonText}
             </button>
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

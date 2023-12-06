@@ -16,7 +16,7 @@ import {
 } from "react-router-dom/cjs/react-router-dom.min";
 import { Route } from "react-router-dom/cjs/react-router-dom";
 import { deleteItem, getItems, postItem } from "../../utils/api";
-import AddItemMoal from "../AddItemModal/AddItemModal";
+import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [items, setItems] = useState([]);
+  const [currentWeatherApiInfo, setCurrentWeatherApiInfo] = useState({});
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -47,11 +48,25 @@ function App() {
   const handleCardDelete = (card) => {
     console.log("delete buitton was clicked");
     console.log(card);
-    deleteItem(card).catch((res) => {
-      console.error(res);
-    });
-    updateItemsDelete(card);
-    handleCloseModal();
+    deleteItem(card)
+      .then(() => {
+        updateItemsDelete(card);
+        handleCloseModal();
+      })
+      .catch((res) => {
+        console.error(res);
+      });
+  };
+
+  const handleCardAdd = (input) => {
+    postItem(input)
+      .then((res) => {
+        updateItemsAdd(res);
+        handleCloseModal();
+      })
+      .catch((res) => {
+        console.error(res);
+      });
   };
 
   // const handleOpenAddGarmentForm = () => {
@@ -62,13 +77,15 @@ function App() {
     console.log(`toggle function fired ${currentTemperatureUnit}`);
     if (currentTemperatureUnit === "F") {
       setCurrentTemperatureUnit("C");
+      setTemp(currentWeatherApiInfo.C);
     } else {
       setCurrentTemperatureUnit("F");
+      setTemp(currentWeatherApiInfo.F);
     }
   };
 
   const updateItemsAdd = (item) => {
-    setItems([...items, item]);
+    setItems([item, ...items]);
   };
 
   const updateItemsDelete = (card) => {
@@ -87,11 +104,12 @@ function App() {
       .then((res) => {
         const weatherApiInfo = parseWeatherData(res);
 
+        setCurrentWeatherApiInfo(weatherApiInfo);
         setTemp(weatherApiInfo[currentTemperatureUnit]);
         setLocation(weatherApiInfo.location);
       })
       .catch((res) => console.log(res));
-  }, [currentTemperatureUnit]);
+  }, []);
 
   useEffect(() => {
     getItems()
@@ -137,9 +155,9 @@ function App() {
             </Switch>
             <Footer />
             {activeModal === "create" && (
-              <AddItemMoal
+              <AddItemModal
                 handleCloseModal={handleCloseModal}
-                updateItems={updateItemsAdd}
+                onCardAdd={handleCardAdd}
                 //handleAddGarmentSubmit={handleAddGarmentSubmit}
               />
             )}

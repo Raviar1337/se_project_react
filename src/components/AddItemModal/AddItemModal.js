@@ -4,7 +4,7 @@ import React from "react";
 import { postItem } from "../../utils/api";
 //in case of needing cleaning import Add Garment css and delete abovve line
 
-const AddItemMoal = ({ handleCloseModal, updateItems }) => {
+const AddItemModal = ({ handleCloseModal, onCardAdd }) => {
   const [name, setName] = React.useState("");
   const [imageUrl, setImageUrl] = React.useState("");
   const [weather, setWeather] = React.useState("");
@@ -28,14 +28,7 @@ const AddItemMoal = ({ handleCloseModal, updateItems }) => {
     e.preventDefault();
     console.log(`So this fired the unput is${{ name, imageUrl, weather }}`);
     console.log({ name, imageUrl, weather });
-    postItem({ name, imageUrl, weather })
-      .then((res) => {
-        updateItems(res);
-      })
-      .catch((res) => {
-        console.error(res);
-      });
-    handleCloseModal();
+    onCardAdd({ name, imageUrl, weather });
   };
 
   return (
@@ -76,34 +69,40 @@ const AddItemMoal = ({ handleCloseModal, updateItems }) => {
         </p>
         <div className="addGarmentForm__buttonContainer">
           <div>
-            <input
-              name="weather-type"
-              type="radio"
-              id="hot"
-              value="hot"
-              onChange={handleOnChangeWeather}
-            />
-            <label>Hot</label>
+            <label>
+              <input
+                name="weather-type"
+                type="radio"
+                id="hot"
+                value="hot"
+                onChange={handleOnChangeWeather}
+              />
+              Hot
+            </label>
           </div>
           <div>
-            <input
-              name="weather-type"
-              type="radio"
-              id="warm"
-              value="warm"
-              onChange={handleOnChangeWeather}
-            />
-            <label>Warm</label>
+            <label>
+              <input
+                name="weather-type"
+                type="radio"
+                id="warm"
+                value="warm"
+                onChange={handleOnChangeWeather}
+              />
+              Warm
+            </label>
           </div>
           <div>
-            <input
-              name="weather-type"
-              type="radio"
-              id="cold"
-              value="cold"
-              onChange={handleOnChangeWeather}
-            />
-            <label>Cold</label>
+            <label>
+              <input
+                name="weather-type"
+                type="radio"
+                id="cold"
+                value="cold"
+                onChange={handleOnChangeWeather}
+              />
+              Cold
+            </label>
           </div>
         </div>
       </div>
@@ -111,4 +110,4 @@ const AddItemMoal = ({ handleCloseModal, updateItems }) => {
   );
 };
 
-export default AddItemMoal;
+export default AddItemModal;

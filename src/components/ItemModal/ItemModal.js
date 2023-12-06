@@ -4,7 +4,7 @@ import "./ItemModal.css";
 function ItemModal({ onCloseModal, card, handleCardDelete }) {
   console.log(card);
   return (
-    <>
+    <div className="modal">
       <div className="modal__backDrop">
         <div className="itemModal modalWithForm">
           <button
@@ -33,7 +33,7 @@ function ItemModal({ onCloseModal, card, handleCardDelete }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

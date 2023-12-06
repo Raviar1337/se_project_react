@@ -10,15 +10,17 @@ function ToggleSwitch() {
   );
 
   return (
-    <>
-      <label className="toggleSwitch">
-        <input
-          type="checkbox"
-          onClick={currentTemperatureUnit.handleToggleSwitchChange}
-        />
-        <span className="toggleSwitch__slider" />
-      </label>
-    </>
+    <label className="toggleSwitch">
+      <input
+        type="checkbox"
+        onClick={currentTemperatureUnit.handleToggleSwitchChange}
+      />
+      <span className="toggleSwitch__slider" />
+      <div className="toggleSwitch__letterContainer">
+        <p className="toggleSwitch__letter">F</p>
+        <p className="toggleSwitch__letter">C</p>
+      </div>
+    </label>
   );
 }
 

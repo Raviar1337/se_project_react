@@ -1,6 +1,6 @@
 .toggleSwitch {
   position: relative;
-  display: inline-block;
+  display: flex;
   width: 56px;
   height: 28px;
 
@@ -34,6 +34,9 @@
   background-color: black;
   transition: 0.4s;
   border-radius: 50%;
+
+  filter: invert(1);
+  mix-blend-mode: difference;
 }
 
 input:checked + .toggleSwitch__slider:before {
@@ -42,4 +45,16 @@ input:checked + .toggleSwitch__slider:before {
 
 .toggleSwitch:hover .toggleSwitch__slider:before {
   width: 30px;
+}
+
+.toggleSwitch__letterContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 43px;
+}
+
+.toggleSwitch__letter {
+  margin: 0;
+  margin-top: 5px;
+  margin-right: 7px;
 }
