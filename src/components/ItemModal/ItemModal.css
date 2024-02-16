@@ -33,6 +33,14 @@
   cursor: pointer;
 }
 
+.itemModal__deleteButton_visible {
+  visibility: visible;
+}
+
+.itemModal__deleteButton_hidden {
+  visibility: hidden;
+}
+
 .itemModal__deleteButton:hover {
   opacity: 0.8;
 }

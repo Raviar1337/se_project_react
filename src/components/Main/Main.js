@@ -6,8 +6,16 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { parseTemp } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
+function Main({
+  items,
+  temp,
+  onCreateModal,
+  onOpenItemModal,
+  cardSelect,
+  onCardLike,
+}) {
   console.log(temp);
+  console.log(onCardLike);
 
   const currentTemperatureUnit = React.useContext(
     CurrentTemperatureUnitContext
@@ -37,6 +45,7 @@ function Main({ items, temp, onCreateModal, onOpenItemModal, cardSelect }) {
                 onCreateModal={onCreateModal}
                 onOpenItem={onOpenItemModal}
                 cardSelect={cardSelect}
+                onCardLike={onCardLike}
               />
             );
           }

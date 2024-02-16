@@ -33,3 +33,17 @@
   border-radius: 4px;
   z-index: 2;
 }
+
+.itemCard__likeButton {
+  /* ❤ */
+  display: flex;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 18px;
+  height: 15px;
+  cursor: pointer;
+  margin-top: 22px;
+  margin-left: 10px;
+  z-index: 2;
+}

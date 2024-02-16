@@ -41,9 +41,14 @@
   margin-left: 20px;
 }
 
+.header__button-hidden {
+  display: none;
+}
+
 .header__userAvatar {
   height: 40px;
   width: 40px;
+  border-radius: 100%;
 
   margin-left: 12px;
 }

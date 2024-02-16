@@ -1,7 +1,15 @@
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "../ModalWithForm/ModalWithForm.css";
 import "./ItemModal.css";
 
 function ItemModal({ onCloseModal, card, handleCardDelete }) {
+  const currentUser = useContext(CurrentUserContext);
+  const isOwn = card.item.owner === currentUser._id;
+  const itemDeleteButtonClassName = `"itemModal__deleteButton" ${
+    isOwn ? "itemModal__deleteButton_visible" : "itemModal__deleteButton_hidden"
+  }`;
+
   console.log(card);
   return (
     <div className="modal">
@@ -24,7 +32,7 @@ function ItemModal({ onCloseModal, card, handleCardDelete }) {
             </div>
             <div className="itemModal__footer-right">
               <button
-                className="itemModal__deleteButton"
+                className={itemDeleteButtonClassName}
                 onClick={() => handleCardDelete(card)}
               >
                 Delete Item

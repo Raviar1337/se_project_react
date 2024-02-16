@@ -1,0 +1,17 @@
+.registerUserForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.registerUserForm__input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.registerUserForm__input-field {
+  border: none;
+
+  border-bottom: solid 1px;
+  border-color: black;
+}
