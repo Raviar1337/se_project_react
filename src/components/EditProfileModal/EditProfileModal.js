@@ -4,6 +4,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "../RegisterModal/RegisterModal.css";
 import React from "react";
+import "./EditProfileModal.css";
 
 //import { useForm } from "../../hooks/useForm";
 

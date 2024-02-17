@@ -2,6 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
 import React from "react";
 import { postItem } from "../../utils/api";
+import "./AddItemModal.css";
 //in case of needing cleaning import Add Garment css and delete abovve line
 
 const AddItemModal = ({ handleCloseModal, onCardAdd }) => {
