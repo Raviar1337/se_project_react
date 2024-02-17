@@ -1,5 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import AddGarmentForm from "../AddGarmentForm/AddGarmentForm";
+import "../AddGarmentForm/AddGarmentForm.css";
 import React from "react";
 import { postItem } from "../../utils/api";
 import "./AddItemModal.css";
