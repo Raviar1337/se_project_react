@@ -4,7 +4,7 @@ import React from "react";
 
 //import { useForm } from "../../hooks/useForm";
 
-const SigninModal = ({ onCloseModal, onSignin }) => {
+const SigninModal = ({ onCloseModal, onSignin, onSwitchModal }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -25,9 +25,11 @@ const SigninModal = ({ onCloseModal, onSignin }) => {
   return (
     <ModalWithForm
       onCloseModal={onCloseModal}
-      modalTitle="Signin"
-      submitButtonText="Signin"
+      modalTitle="Log In"
+      submitButtonText="Log In"
       onSubmitForm={handleSigninSubmit}
+      extraButton={onSwitchModal}
+      extraButtonText="or Sign Up"
     >
       <div className="registerUserForm__input">
         <label className="registerUserForm__input">

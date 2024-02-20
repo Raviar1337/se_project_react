@@ -6,8 +6,8 @@ import "./ItemModal.css";
 function ItemModal({ onCloseModal, card, handleCardDelete }) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card.item.owner === currentUser._id;
-  const itemDeleteButtonClassName = `"itemModal__deleteButton" ${
-    isOwn ? "itemModal__deleteButton_visible" : "itemModal__deleteButton_hidden"
+  const itemDeleteButtonClassName = ` ${
+    isOwn ? "itemModal__deleteButton" : "itemModal__deleteButton_hidden"
   }`;
 
   console.log(card);

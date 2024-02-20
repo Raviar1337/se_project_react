@@ -4,7 +4,7 @@ import React from "react";
 
 //import { useForm } from "../../hooks/useForm";
 
-const RegisterModal = ({ onCloseModal, onCreateUser }) => {
+const RegisterModal = ({ onCloseModal, onCreateUser, onSwitchModal }) => {
   const [name, setName] = React.useState("");
   const [avatar, setAvatar] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -46,6 +46,8 @@ const RegisterModal = ({ onCloseModal, onCreateUser }) => {
       modalTitle="New User"
       submitButtonText="Register"
       onSubmitForm={handleRegisterUserSubmit}
+      extraButton={onSwitchModal}
+      extraButtonText="or Log In"
     >
       <div className="registerUserForm__input">
         <label className="registerUserForm__input">

@@ -64,3 +64,10 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.modalWithForm__extraButton {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  width: fit-content;
+}

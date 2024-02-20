@@ -35,7 +35,7 @@
 .header__button {
   background-color: transparent;
   border: none;
-  width: 116px;
+  width: fit-content;
   height: 24px;
   cursor: pointer;
   margin-left: 20px;
@@ -43,6 +43,10 @@
 
 .header__button-hidden {
   display: none;
+}
+
+.header__userName {
+  margin-left: 20px;
 }
 
 .header__userAvatar {

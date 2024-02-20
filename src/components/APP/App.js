@@ -14,6 +14,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import {
   BrowserRouter,
   Switch,
+  Redirect,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { Route } from "react-router-dom/cjs/react-router-dom";
 import {
@@ -156,6 +157,7 @@ function App() {
         console.log(res);
         localStorage.setItem("jwt", res.token);
         handleCloseModal();
+        setLoggedIn(true);
       })
       .catch((res) => {
         console.error(res);
@@ -223,6 +225,14 @@ function App() {
   useEffect(() => {
     tokenCheck();
   }, []);
+
+  useEffect(() => {
+    if (loggedIn) {
+      console.log("im logged in now");
+    } else {
+      console.log("not logged in");
+    }
+  }, [loggedIn]);
 
   useEffect(() => {
     getWeatherInfo()
@@ -310,12 +320,14 @@ function App() {
                 <RegisterModal
                   onCloseModal={handleCloseModal}
                   onCreateUser={handleCreateUser}
+                  onSwitchModal={handleSigninModal}
                 />
               )}
               {activeModal === "signin" && (
                 <SigninModal
                   onCloseModal={handleCloseModal}
                   onSignin={handleSignin}
+                  onSwitchModal={handleRegisterModal}
                 />
               )}
               {activeModal === "edit" && (

@@ -8,6 +8,8 @@ function ModalWithForm({
   submitButtonText,
   modalTitle,
   onSubmitForm,
+  extraButton,
+  extraButtonText,
 }) {
   // some extra code here
   //{`modal modal_type_${name}`}
@@ -28,6 +30,17 @@ function ModalWithForm({
             <button type="submit" className="modalWithForm__submit">
               {submitButtonText}
             </button>
+            {extraButton ? (
+              <button
+                type="button"
+                onClick={extraButton}
+                className="modalWithForm__submit modalWithForm__extraButton"
+              >
+                {extraButtonText}
+              </button>
+            ) : (
+              <></>
+            )}
           </form>
         </div>
       </div>

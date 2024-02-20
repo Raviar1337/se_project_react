@@ -60,13 +60,13 @@ function Header({
           className={headerButtonLoggedOutClassName}
           onClick={onRegisterModal}
         >
-          Signup
+          Sign Up
         </button>
         <button
           className={headerButtonLoggedOutClassName}
           onClick={onSigninModal}
         >
-          Signin
+          Log In
         </button>
 
         <button
