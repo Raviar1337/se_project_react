@@ -100,7 +100,13 @@ function App() {
     postItem(input, token)
       .then((res) => {
         updateItemsAdd(res);
+        tokenCheck();
         handleCloseModal();
+        getItems()
+          .then((res) => {
+            setItems(res.data);
+          })
+          .catch((res) => console.log(res));
       })
       .catch((res) => {
         console.error(res);
@@ -145,6 +151,7 @@ function App() {
       .then((res) => {
         console.log(res);
         handleCloseModal();
+        tokenCheck();
       })
       .catch((res) => {
         console.error(res);
