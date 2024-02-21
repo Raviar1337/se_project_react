@@ -156,8 +156,8 @@ function App() {
       .then((res) => {
         console.log(res);
         localStorage.setItem("jwt", res.token);
+        tokenCheck();
         handleCloseModal();
-        setLoggedIn(true);
       })
       .catch((res) => {
         console.error(res);
