@@ -60,19 +60,6 @@ export const removeCardLike = (id, token, currentUser) => {
   }).then(processServerResponse);
 };
 
-export const createUser = (input) => {
-  return fetch(`${baseUrl}/signup`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      name: input.name,
-      avatar: input.avatar,
-      email: input.email,
-      password: input.password,
-    }),
-  }).then(processServerResponse);
-};
-
 export const editUser = (input, token) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
@@ -84,16 +71,6 @@ export const editUser = (input, token) => {
       name: input.name,
       avatar: input.avatar,
     }),
-  }).then(processServerResponse);
-};
-
-export const signin = (input) => {
-  return fetch(`${baseUrl}/signin`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email: input.email, password: input.password }),
   }).then(processServerResponse);
 };
 

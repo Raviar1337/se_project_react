@@ -15,8 +15,6 @@ function Profile({
   onEditModal,
   onLogOut,
 }) {
-  const currentUser = useContext(CurrentUserContext);
-
   return (
     <div className="profile">
       <SideBar

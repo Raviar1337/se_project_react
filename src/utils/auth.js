@@ -1,3 +1,4 @@
+import { processServerResponse } from "./api";
 import { baseUrl } from "./constants";
 
 // export const tokenCheck = () => {
@@ -8,6 +9,29 @@ import { baseUrl } from "./constants";
 //   }
 // };
 
+export const createUser = (input) => {
+  return fetch(`${baseUrl}/signup`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: input.name,
+      avatar: input.avatar,
+      email: input.email,
+      password: input.password,
+    }),
+  }).then(processServerResponse);
+};
+
+export const signin = (input) => {
+  return fetch(`${baseUrl}/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: input.email, password: input.password }),
+  }).then(processServerResponse);
+};
+
 export const getContent = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
@@ -17,11 +41,8 @@ export const getContent = (token) => {
       Authorization: `Bearer ${token}`,
     },
   })
-    .then((res) => res.json())
-    .then((data) => data)
-    .catch((err) => {
-      console.log(err);
-    });
+    .then(processServerResponse)
+    .then((data) => data);
 };
 
 // export const tokenCheck = () => {

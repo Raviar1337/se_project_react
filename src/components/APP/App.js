@@ -21,8 +21,6 @@ import {
   deleteItem,
   getItems,
   postItem,
-  createUser,
-  signin,
   editUser,
   addCardLike,
   removeCardLike,
@@ -31,7 +29,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SigninModal from "../SigninModal/SigninModal";
-import { getContent } from "../../utils/auth";
+import { getContent, createUser, signin } from "../../utils/auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
@@ -100,7 +98,7 @@ function App() {
     postItem(input, token)
       .then((res) => {
         updateItemsAdd(res);
-        tokenCheck();
+        //tokenCheck();
         handleCloseModal();
         getItems()
           .then((res) => {
@@ -151,7 +149,8 @@ function App() {
       .then((res) => {
         console.log(res);
         handleCloseModal();
-        tokenCheck();
+        //tokenCheck();
+        setCurrentUser(res.data);
       })
       .catch((res) => {
         console.error(res);
@@ -215,7 +214,7 @@ function App() {
   };
 
   const updateItemsAdd = (item) => {
-    setItems([item, ...items]);
+    setItems([...items, item]);
   };
 
   const updateItemsDelete = (card) => {
@@ -269,18 +268,17 @@ function App() {
             value={{ currentTemperatureUnit, handleToggleSwitchChange }}
           >
             <div className="App">
-              <Route path="/">
-                <Header
-                  onCreateModal={handleCreateModal}
-                  onRegisterModal={handleRegisterModal}
-                  onSigninModal={handleSigninModal}
-                  // onEditModal={handleEditModal}
-                  // onLogOut={handleLogOut}
-                  isLoggedIn={loggedIn}
-                  // onOpenAddGarmentForm={handleOpenAddGarmentForm}
-                  location={location}
-                />
-              </Route>
+              <Header
+                onCreateModal={handleCreateModal}
+                onRegisterModal={handleRegisterModal}
+                onSigninModal={handleSigninModal}
+                // onEditModal={handleEditModal}
+                // onLogOut={handleLogOut}
+                isLoggedIn={loggedIn}
+                // onOpenAddGarmentForm={handleOpenAddGarmentForm}
+                location={location}
+              />
+
               <Switch>
                 <ProtectedRoute isLoggedIn={loggedIn} path="/profile">
                   <Route>

@@ -31,7 +31,11 @@ function ItemCard({ item, onOpenItem, cardSelect, onCardLike }) {
         ></img>
         <h3 className="itemCard__title">{item.name}</h3>{" "}
         <button className="itemCard__likeButton" onClick={handleLike}>
-          <img className="likeButton__image" src={imageSrc}></img>
+          <img
+            className="likeButton__image"
+            src={imageSrc}
+            alt="like bnutton"
+          ></img>
         </button>
       </div>
     </li>
