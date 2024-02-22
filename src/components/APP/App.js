@@ -97,14 +97,14 @@ function App() {
   const handleCardAdd = (input) => {
     postItem(input, token)
       .then((res) => {
-        updateItemsAdd(res);
+        updateItemsAdd(res.data);
         //tokenCheck();
         handleCloseModal();
-        getItems()
-          .then((res) => {
-            setItems(res.data);
-          })
-          .catch((res) => console.log(res));
+        // getItems()
+        //   .then((res) => {
+        //     setItems(res.data);
+        //   })
+        //   .catch((res) => console.log(res));
       })
       .catch((res) => {
         console.error(res);
@@ -214,7 +214,7 @@ function App() {
   };
 
   const updateItemsAdd = (item) => {
-    setItems([...items, item]);
+    setItems([item, ...items]);
   };
 
   const updateItemsDelete = (card) => {
