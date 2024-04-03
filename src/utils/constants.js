@@ -8,7 +8,12 @@
 //   longitude: 10.99,
 // };
 
-const baseUrl = "http://localhost:3001";
+//const baseUrl = "http://localhost:3001";
+
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.ravwtwr.twilightparadox.com"
+    : "http://localhost:3001";
 
 const APIkey = "c44122571bf23cefec328510e217242a";
 const latitude = 30.83;
